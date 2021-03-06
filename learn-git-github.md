@@ -65,13 +65,13 @@ $ git commit -m "Initial commit"
 Create a new, empty repository on Github and note the address to it.
 It will have a format like this: ```git@github.com:<username>/<repository>.git```
 
+Then add remote address to repository and push what we've got so far:
 ```zsh
 $ git branch -M main
-$ git remote add origin git@github:<username>/<repository>.git
+$ git remote add origin git@github.com:<username>/<repository>.git
 $ git push -u origin main
 ```
-
-Check status of your repository:
+When changes has been made, check the status of your repository:
 ```zsh
 $ git status
 ```
