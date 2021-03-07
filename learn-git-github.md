@@ -87,7 +87,17 @@ $ git push
 
 
 ## Create and clone from Github
-Todo
+
+If you create a repository on github.com and initialize it with some files, like the readme, gitignore or license, the easiest way to get a local copy to work with is git clone. This will create a folder with the repository name:
+```zsh
+$ git clone git@github.com:<username>/<repository>.git
+```
+
+If for some reason you want the local folder to be called something other than the repository name, that can be added as a parameter:
+```zsh
+$ git clone git@github.com:<username>/<repository>.git <new-folder-name>
+```
+A cloned repository like this has already been initialized so the ```git init``` command is not needed when working with it.
 
 ## Set up SSH keys and add them to your account
 Todo
