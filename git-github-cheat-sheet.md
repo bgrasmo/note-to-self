@@ -43,7 +43,11 @@ $ git push
 
 
 ## Create and clone from Github
-Todo
+
+```zsh
+$ git clone git@github.com:<username>/<repository>.git
+$ git clone git@github.com:<username>/<repository>.git <new-folder-name>
+```
 
 ## Set up SSH keys and add them to your account
 Todo
