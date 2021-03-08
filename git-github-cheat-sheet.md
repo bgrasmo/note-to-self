@@ -50,4 +50,9 @@ $ git clone git@github.com:<username>/<repository>.git <new-folder-name>
 ```
 
 ## Set up SSH keys and add them to your account
-Todo
+
+```zsh
+$ ssh-keygen -t ed25519 -C "your_name@example.com"
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_ed25519
+```

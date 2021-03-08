@@ -100,4 +100,23 @@ $ git clone git@github.com:<username>/<repository>.git <new-folder-name>
 A cloned repository like this has already been initialized so the ```git init``` command is not needed when working with it.
 
 ## Set up SSH keys and add them to your account
-Todo
+
+If you don't have a suitable SSH key already, create one first:
+```zsh
+$ ssh-keygen -t ed25519 -C "your_name@example.com"
+```
+The -C parameter lets you add a comment to the key, and here we set it to an email address but it can be anything. If not set it will be something like "username@DESKTOP-E7B5H2C" depending on your system
+Accept the default name for the key and set a strong password for it.
+
+Start the ssh-agent which will remember your password, so you don't have to type it every time you use SSH:
+```zsh
+eval `ssh-agent -s`
+```
+Next add your key and password to ssh-agent:
+```zsh
+ssh-add ~/.ssh/id_ed25519
+```
+Note that ssh-agent has to be restarted after each reboot and the key with password has to be added every time ssh-agent is started
+
+Finally, copy the contents of the ```id_ed25519.pub``` file and add it to Github. If you see ```-----BEGIN OPENSSH PRIVATE KEY-----``` in the file, it's the wrong one, that one should be kept private.
+In Github, SSH keys are found under profile and then "SSH and GPG keys" in the menu on the left. Click "New SSH Key", give it a title, and add they key in the "key" input field.
