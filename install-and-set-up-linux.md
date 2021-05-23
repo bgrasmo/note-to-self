@@ -36,3 +36,13 @@ Follow the installation guide:
 https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview
 
 Tutorial was easy and straight forward so didn't think to write down what I did, but the guide covers the options.
+
+# Add multimedia codecs
+It turns out multimedia playback doesn't work perfectly in browsers on Linux by default, as some multimedia codecs are not installed.
+
+The multimedia codecs are called "ubuntu-restricted-extras" and can be installed from commandline or the Ubuntu software store following this guide: https://www.ubuntupit.com/how-to-install-multimedia-codecs-on-ubuntu-linux/
+
+In short, using the Ubuntu software store:
+1. Copy and paste this link into a browser: ```apt:ubuntu-restricted-extras?section=universe?section=multiverse```
+2. Select to open the link in Ubuntu software
+3. Click install
