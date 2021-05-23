@@ -46,3 +46,27 @@ In short, using the Ubuntu software store:
 1. Copy and paste this link into a browser: ```apt:ubuntu-restricted-extras?section=universe?section=multiverse```
 2. Select to open the link in Ubuntu software
 3. Click install
+
+# Install a new terminal
+I like the terminal called Hyper as it can be used on all of Windows, Mac and Linux, so you can have the same setup if you use different systems.
+
+Page: hyper.is
+
+1. Go to "Installation" and download the Debian (.deb) file. The .AppImage might be more portable, but it starts up a lot slower, and I have experienced some problems with it I don't get with the .deb file.
+2. Open the file from the browser, and select to open it with Ubuntu software
+3. Click install
+
+When hyper is launched, right click on the icon in the favorites bar to the right and select "Add to favorites" to keep it easily accessible.
+
+# Install a new shell - zsh
+From the commandline:
+
+```zsh
+$ sudo apt install zsh
+```
+
+Set zsh as the default shell for the logged in user:
+
+```zsh
+$ chsh -s /usr/bin/zsh
+```
