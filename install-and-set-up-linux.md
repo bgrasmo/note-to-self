@@ -70,3 +70,56 @@ Set zsh as the default shell for the logged in user:
 ```zsh
 $ chsh -s /usr/bin/zsh
 ```
+# Install oh my zsh
+For managing your zsh configuration with themes and plugins that help with usability and productivity.
+
+Page: https://ohmyz.sh/
+
+Get the install script:
+```zsh
+$ curl -o install-oh-my-zsh.zsh -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+```
+It is wise to inspect it and see that it doesn't do anything malicious.
+
+Run it to activate oh my zsh:
+```zsh
+$ sh ./install-oh-my-zsh.sh
+```
+
+# Download and install powerline fonts
+According to the documentation, "powerline is a statusline plugin for vim, and provides statuslines and prompts for several other applications." The powerline fonts are patched for powerline, and are used to easily see wanted status: Of current working directory, current git branch, number of git changes since last push and many other things.
+
+For a general collection of powerline fonts: https://github.com/powerline/fonts but many other can be found online. https://www.nerdfonts.com/ is another notable page.
+
+I'm using Fira Code which can be installed with apt:
+
+```zsh
+$ sudo apt install fonts-firacode
+```
+Then tell the terminal (Hyper) to use it, by adding it first to the font family configuration. Hyper configiration can be opened by pressing ```ctrl comma``` at the same time when in the terminal, or open the file ```~/.hyper.js``` in your favorite editor. The font config should look like this:
+```zsh
+fontFamily: '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+```
+To use the same font in VS Code, it has to be added there as well. Go to settings, which again can be opened with ```ctrl comma``` in the editor, then add it first on the font family config so it looks like this:
+```zsh
+'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'
+```
+
+# Download and install the cobalt2 theme
+One of the points of using oh-my-zsh for me is that it supports themes. It does come with a lot of them you can experiment with, but I'm using Cobalt2 by [Wes Bos](https://wesbos.com/).
+Cobalt2 can be found here: https://github.com/wesbos/Cobalt2-iterm
+
+Go to the custom themes directory for oh-my-zsh which is in ```~/.oh-my-zsh/custom/themes```
+
+Clone the cobalt2 repository:
+```zsh
+$ git clone git@github.com:wesbos/Cobalt2-iterm.git
+```
+
+Symlink the zsh-theme to cobalt2.zsh-theme in the current directory:
+```zsh
+$ ln -s Cobalt2-iterm/cobalt2.zsh-theme cobalt2.zsh-theme
+```
+Then finally to make use of all we've done above, tell oh-my-zsh to use this theme by setting it in the ~/.zshrc file. The line to change is ```ZSH_THEME``` and it should be changed to ```cobalt2``` instead of ```robbyrussell``` which was the default when I wrote this.
+
+Now you can easily see your working directory, what git branch is checked out, if working tree is clean or if there are uncomitted changes, and so on.
