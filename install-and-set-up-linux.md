@@ -123,3 +123,51 @@ $ ln -s Cobalt2-iterm/cobalt2.zsh-theme cobalt2.zsh-theme
 Then finally to make use of all we've done above, tell oh-my-zsh to use this theme by setting it in the ~/.zshrc file. The line to change is ```ZSH_THEME``` and it should be changed to ```cobalt2``` instead of ```robbyrussell``` which was the default when I wrote this.
 
 Now you can easily see your working directory, what git branch is checked out, if working tree is clean or if there are uncomitted changes, and so on.
+
+# Install Node.js
+There are at least 3 ways to install Node:
+1. Download and install directly from nodejs.org
+2. Using apt to install either from Ubuntu official package or through a PPA (Personal Package Archive)
+3. Install using nvm (Node Version Manager)
+
+Tutorial on digital ocean: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
+
+Option 1 seems to require a manual install which I didn't want to do. Could be there are some other ways, but I didn't spend much time investigating.
+
+Option 2, through Ubuntu official package, seems to give you a potentially very old Node version that isn't updated. Ubuntu 20.04 seems to still install Node 10, so I didn't want to do that.
+
+Option 2 but using PPA is something I'm not familiar with, so I didn't try that. Though the advantages of using apt and having a Node version installed globally is that any Node modules you install globally will be kept when you upgrade Node.
+The disadvantage is that you can't easily install a new version to check it out, and then quickly switch back if you don't want to use it yet.
+
+Option 3 is what I went for, as it allows you to have multiple Node versions installed at the same time, and quickly switching between them. The disadvantage to this approach however, is that any global Node modules installed really are local to the Node version being used at the time. Meaning, if you switch Node version, you have to install the global Node modules again. Fortunately there is a way to easily upgrade modules from one version to another with nvm.
+
+Source for nvm is at https://github.com/nvm-sh/nvm
+
+Download the install script, and as always inspect it and check that it won't be doing anything malicious:
+```zsh
+$ curl -o install-nvm.sh -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh
+```
+Then run it:
+```zsh
+$ bash ./install-nvm.sh
+```
+If you're using a different shell from bash, like zsh, the following will have to be added to your shells configuration. For zsh, it's ```~/.zshrc```:
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+Restart your shell and nvm should be available.
+
+Now to install a Node version, list available versions with long term support (lts):
+```zsh
+$ nvm ls-remote --lts
+```
+Then install the version you want, for instance v14.17.0. You don't need the v in front of version number:
+```zsh
+$ nvm install 14.17.0
+```
+Node should now be installed, and you can check the version with:
+```zsh
+$ node --version
+```
