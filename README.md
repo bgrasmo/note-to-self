@@ -8,3 +8,6 @@ Using git and Github:
 
 Installing and setting up Ubuntu Linux desktop
 * [Install and set up Ubuntu Linux desktop](https://github.com/bgrasmo/note-to-self/blob/main/install-and-set-up-linux.md)
+
+Learning JavaScript
+* [JavaScript basics](https://github.com/bgrasmo/note-to-self/blob/main/javascript-basics.md)
