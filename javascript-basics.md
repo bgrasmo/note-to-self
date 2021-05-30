@@ -1,6 +1,8 @@
 # Learning JavaScript - the basics
 Documenting what I learn about Javascript as I go, to keep as a reference-guide for myself as I am sure to need it.
 
+I programmed in Perl quite a few years ago, so I'm familiar with some programming basics still. These notes will probably be a little light in some basic areas because of that.
+
 # Variables
 Three different ways to declare a variable in Javascript:
 ```javascript
@@ -8,7 +10,7 @@ var var1 = 'Some';
 let var2 = 'String';
 const var3 = 'Here';
 ```
-Var is scoped globally or to the function it was defined, while let and const are scoped to the function or block they are defined in.
+Var is scoped globally or to the function it was defined in, while let and const are scoped to the function or block they are defined in.
 
 Scope defines the rules for the visibility of variables. A brief example with global scope:
 ```javascript
@@ -49,7 +51,7 @@ console.log(var2);
 console.log(var3);
 // Only var1 is printed because it is var, and defined globally unless inside a function.
 ```
-In short, don't use var but use let or const instead. More about that later.
+In short, don't use var but use let or const instead. More about scope later.
 
 Var and let can be redefined, const can't as it is immutable:
 ```javascript
@@ -139,7 +141,7 @@ let c = 20 / 2; // 10
 // multiply
 let d = 10 * 2; // 20
 ```
-If the variables already contains a value, they can be added to or subtracted from like this:
+If the variables already contains a value, they can be added to or subtracted from like this (it's like Perl all over again):
 ```javascript
 // Increment a by 1
 a = a + 1;
