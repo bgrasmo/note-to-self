@@ -174,7 +174,7 @@ console.log(++b); // adds 1 to a, then prints so result is 21
 console.log(b); // Still 21
 ```
 # The math library
-Javascript has a math library built in with more useful functions. Search for ```mdn javascript math``` for the documentation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+Javascript has a math library built in with more useful functions. Search for ```mdn math``` for the documentation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
 
 ```javascript
 // Find the smallest value
