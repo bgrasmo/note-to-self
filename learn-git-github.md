@@ -153,3 +153,8 @@ Going ```git push``` on a local branch before tracking information is set gives 
 ```zsh
 $ git push --set-upstream origin <new-branch-name>
 ```
+
+In case there has been changes on main that needs to be merged into a feature branch, make sure main is updated locally first. Then check out the feature branch and merge changes from main into it:
+```zsh
+$ git merge main
+```

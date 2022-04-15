@@ -70,3 +70,8 @@ $ git branch --set-upstream-to=origin/<new-branch-name> <new-branch-name>
 # or
 $ git push --set-upstream origin <new-branch-name>
 ```
+
+Merge changes from main into a feature branch, having checked out the feature branch first:
+```zsh
+$ git merge main
+```
