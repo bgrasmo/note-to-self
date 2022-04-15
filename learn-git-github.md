@@ -120,3 +120,36 @@ Note that ssh-agent has to be restarted after each reboot and the key with passw
 
 Finally, copy the contents of the ```id_ed25519.pub``` file and add it to Github. If you see ```-----BEGIN OPENSSH PRIVATE KEY-----``` in the file, it's the wrong one, that one should be kept private.
 In Github, SSH keys are found under profile and then "SSH and GPG keys" in the menu on the left. Click "New SSH Key", give it a title, and add they key in the "key" input field.
+
+## Working with branches
+
+Create a new branch locally from the point you are at now. Basically take a copy of current status:
+```zsh
+$ git branch <new-branch-name>
+```
+
+List all available branches:
+```zsh
+$ git branch -a
+```
+
+Switch to the new branch to make changes to it:
+```zsh
+$ git checkout <new-branch-name>
+```
+
+After changes have been added and committed, push them to Github:
+```zsh
+$ git push origin <new-branch-name>
+```
+
+Now the local changes are stored on Github, but there is no "connection" between the local branch and Github so it can't easily be pulled down again. To set tracking information so they are connected:
+```zsh
+$ git branch --set-upstream-to=origin/<new-branch-name> <new-branch-name>
+```
+Now this new branch can be modified and changes pushed as easily as for main.
+
+Going ```git push``` on a local branch before tracking information is set gives an error message, and possibly the command to achieve the last two commands above in one go, but I haven't tried it yet:
+```zsh
+$ git push --set-upstream origin <new-branch-name>
+```
