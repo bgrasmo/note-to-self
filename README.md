@@ -11,3 +11,8 @@ Installing and setting up Ubuntu Linux desktop
 
 Learning JavaScript
 * [JavaScript basics](https://github.com/bgrasmo/note-to-self/blob/main/javascript-basics.md)
+
+Learning Java
+* [Java basics](https://github.com/bgrasmo/note-to-self/blob/main/java-basics.md)
+* [Java Object Oriented Programming](https://github.com/bgrasmo/note-to-self/blob/main/java-oop.md)
+* [Java intermediate](https://github.com/bgrasmo/note-to-self/blob/main/java-intermediate.md)
