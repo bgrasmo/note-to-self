@@ -213,3 +213,85 @@ public void setEmployees(int index, Employee employee) {
 }
 ```
 
+## Mutable and immutable objects
+
+Another name for 'setter' is 'mutator'. This means that a mutable object is an object that can update its fields through the mutator. Immutable objects then are objects that cannot update their fields as they don't have mutators. This also means immutable objects are immune to the reference trap as their fields are private and without setters there is no way to change them through any object reference.
+
+Remember that an array is a mutable object of a `type[]` class.
+
+## Wrapper class
+
+Every primitive type has a wrapper class. This is an immutable class that wraps around a primitive type.
+
+| Immutable class | Primitive type |
+| --------------- | -------------- |
+| Integer         | int            |
+| Long            | long           |
+| Double          | double         |
+| Character       | char           |
+| String          | N/A            |
+
+```java
+// Deprecated since Java 9
+Integer number1 = new Integer(5);
+
+// The new and supported short-hand syntax
+Integer number2 = 5;
+Long largeNumber = 500000000000L;
+Double decimals = 3.141592653589;
+Character letter = 'a';
+```
+
+The general rule is that primitives should be used most of the time as they take up less space and are faster. A wrapper can be used when you need the value to be nullable or you need to call methods on it.
+
+|                  | Primitive type | Mutable object | Immutable object |
+| ---------------- | -------------- | -------------- | ---------------- |
+| Stores           | Value          | Reference      | Reference        |
+| Nullable         | No             | Yes            | Yes              |
+| Callable methods | No             | Yes            | Yes              |
+| Can update state | N/A            | Yes            | No               |
+| Reference trap   | N/A            | Vulnerable     | Immune           |
+
+It seems immutable doesn't mean exactly what I think it does as the values in an immutable object can be updated. I thought immutability prevented that.
+
+## ArrayList
+
+Both Array and ArrayList store multiple items but an array is fixed, while an array list is resizable.
+
+Since regular arrays can't be resized we would have to make a new array with the new size and copy the old elements into it, which is not efficient:
+
+```java
+String[] group = new String[] {"John", "Jane", "Anna"};
+String[] newGroup = new String[4];
+for (int i = 0; i < group.length; i++) {
+  newGroup[i] = group[i];
+}
+newGroup[3] = "Max";
+```
+
+Using `Arrays.copyOf(group, group.length)` doesn't work, as that makes the newGroup array identical to the original one, also in length.
+
+That is why we have the ArrayList which can add/remove elements. One thing to beware is that it can only store objects and not primitives, but we can use the wrapper classes we just learnt about.
+
+```java
+ArrayList<class type> collection = new ArrayList<class type>();
+```
+
+The `<>` is called generics and specify what it can store. Generics only accept class types and not primitives as previously mentioned. The part after the equal sign creates a new object of the ArrayList class as we should understand by now.
+
+```java
+ArrayList<String> names = new ArrayList<String>();
+names.add("John");
+names.add("Jane");
+names.add("Anna");
+
+for (int i = 0; i < names.size(); i++) {
+  names.get(i);
+}
+names.set(0, "John Doe"); // Change value at index 0
+names.add(0, "Joe Schmoe"); // Insert new value at index 0
+names.remove(1); // Remove value at index 1
+names.clear(); // Empty the list
+```
+
+If size is fixed use regular arrays as there is less overhead compared to ArrayList.
