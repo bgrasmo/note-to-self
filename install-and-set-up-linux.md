@@ -85,6 +85,22 @@ Run it to activate oh my zsh:
 ```zsh
 $ sh ./install-oh-my-zsh.sh
 ```
+# Install zsh auto-suggestions
+_[Fish](https://fishshell.com/)-like fast/unobtrusive autosuggestions for zsh._
+
+It suggests commands as you type based on history and completions. As you type commands, you will see a completion offered after the cursor in a muted gray color.
+
+To install, clone the repository into the custom plugins folder for oh-my-zsh. On the command line:
+```zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+To activate it, add it to the list of plugins oh-my-zsh will load. In `~/.zshrc` find the `plugins=` line and add it. If only the git plugin was activated before, it should look like this:
+```zsh
+plugins=(git zsh-autosuggestions)
+```
+
+Now restart the shell.
 
 # Download and install powerline fonts
 According to the documentation, "powerline is a statusline plugin for vim, and provides statuslines and prompts for several other applications." The powerline fonts are patched for powerline, and are used to easily see wanted status: Of current working directory, current git branch, number of git changes since last push and many other things.
@@ -104,6 +120,13 @@ To use the same font in VS Code, it has to be added there as well. Go to setting
 ```zsh
 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'
 ```
+# Alternative fonts
+There are many alternatives to select from, and I've recently switched to [Intel One Mono](https://github.com/intel/intel-one-mono). To install, download the `otf` version from `releases` and unzip it. Then double-click each font file in your choice of file explorer and you should get the option to install that font file. To use the new font, follow the same instructions as for `Fira Code` above. On Linux the font should be used like this: `'Intel One Mono'` while on Mac it seems to be installed as `'IntelOne Mono'`.
+
+Another thing on Linux is that it might be necessary to install `font-manager` if it doesn't come with the distribution: `sudo apt install font-manager`
+
+I've switched to a zsh-shell theme called `powerlevel10k` and they recommend using a font called [MesloLGS NF](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) and they have their own patched version of it with all the symbols needed for their themes, but I find Intel One works just as well. If there are issues with symbols when configuring (like lock and arrow up symbol not showing) you will actually have to have the MesloLGS NF font installed and in your terminals font path, but I've not experienced any other issues other than when configuring.
+
 
 # Download and install the cobalt2 theme
 One of the points of using oh-my-zsh for me is that it supports themes. It does come with a lot of them you can experiment with, but I'm using Cobalt2 by [Wes Bos](https://wesbos.com/).
@@ -123,6 +146,15 @@ $ ln -s Cobalt2-iterm/cobalt2.zsh-theme cobalt2.zsh-theme
 Then finally to make use of all we've done above, tell oh-my-zsh to use this theme by setting it in the ~/.zshrc file. The line to change is ```ZSH_THEME``` and it should be changed to ```cobalt2``` instead of ```robbyrussell``` which was the default when I wrote this.
 
 Now you can easily see your working directory, what git branch is checked out, if working tree is clean or if there are uncomitted changes, and so on.
+
+# Download and install Powerlevel10k
+[Powerlevel10k](https://github.com/romkatv/powerlevel10k) is a theme for Zsh. It emphasizes [speed](https://github.com/romkatv/powerlevel10k#uncompromising-performance), [flexibility](https://github.com/romkatv/powerlevel10k#extremely-customizable) and [out-of-the-box experience](https://github.com/romkatv/powerlevel10k#configuration-wizard). There are many ways to install and use it, including stand-alone in case you don't want oh-my-zsh. I'll be using it with oh-my-zsh:
+
+```zsh
+$ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+Then set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc, replacing the "cobalt2" line if that was set. Now when you restart your shell the Powerlevel10k configuration wizard will start asking you quite a few questions how you want it configured. If it doesn't start automatically or if you want to re-run it, do so with: `p10k configure`. The configuration will be written to `~/.p10k.zsh`.
+
 
 # Install Node.js
 There are at least 3 ways to install Node:
